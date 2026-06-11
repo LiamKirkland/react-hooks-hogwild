@@ -1,6 +1,6 @@
 import React from "react";
 
-function HogTile({hog, selected, onSelectHog}) {
+function HogTile({hog, selected, onSelectHog, onHideHog}) {
   function handleClick(e) {
     const clickedHog = e.target.closest('.pigTile')
     if(clickedHog.dataset.selected == 'true') {
@@ -13,6 +13,7 @@ function HogTile({hog, selected, onSelectHog}) {
       onSelectHog(hog.id)
     }
   }
+
   return (
   <div className={`${selected ? "maxPigTile" : "minPigTile"} pigTile`} onClick={handleClick} data-selected={selected}>
     <img src={hog.image}/>
@@ -23,6 +24,7 @@ function HogTile({hog, selected, onSelectHog}) {
         <p><b>Specialty: </b>{hog.specialty}</p>
         <p><b>Greased: </b>{hog.greased ? "Yes" : "No"}</p>
         <p><b>Height Medal: </b>{hog["highest medal achieved"]}</p>
+        <button className="sortBtn" onClick={e => {e.stopPropagation(); onHideHog(e)}}>Hide Pig</button>
       </div>) : null}
   </div>)
 }

@@ -2,7 +2,7 @@ import React from "react"
 import Filter from "./Filter"
 import Sort from "./Sort"
 
-function FilterAndSort({ onSetFilter, filterSettings }) {
+function FilterAndSort({ onSetFilter, filterSettings, onRevealHidden }) {
   function setGreased(greased) {
     onSetFilter({...filterSettings, greased: greased})
   }
@@ -14,6 +14,7 @@ function FilterAndSort({ onSetFilter, filterSettings }) {
     <div id="filterBar">
       <Filter onSetGreased={setGreased} />
       <Sort onSetSort={setSort}/>
+      <button className="sortBtn" onClick={onRevealHidden}>Reveal All</button>
     </div>
   )
 }

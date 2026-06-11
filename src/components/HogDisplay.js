@@ -1,7 +1,7 @@
 import React, {useState} from "react";
 import HogTile from "./HogTile";
 
-function HogDisplay({hogs, filter}) {
+function HogDisplay({hogs, filter, onSetHogs}) {
   const [selectedHog, setSelectedHog] = useState(0)
 
   function selectHog(id) {
@@ -14,13 +14,20 @@ function HogDisplay({hogs, filter}) {
     } else {
       return b.weight - a.weight
     }
-  })
+  }).filter(hog => !hog.hidden)
+
+  function hideHog(e) {
+    e.stopPropagation()
+    // console.log()
+    onSetHogs(hogs.map(hog => hog.id == selectedHog ? {...hog, hidden : true} : {...hog}))
+    setSelectedHog(0)
+  }
 
   console.log(hogsToDisplay)
   return (
   <div className="indexWrapper">
     {hogsToDisplay.map(hog => {
-      return <HogTile key={hog.id} hog={hog} selected={hog.id == selectedHog ? true : false} onSelectHog={selectHog} /> 
+      return <HogTile key={hog.id} hog={hog} selected={hog.id == selectedHog ? true : false} onSelectHog={selectHog} onHideHog={hideHog}/> 
     })}
   </div>)
 }

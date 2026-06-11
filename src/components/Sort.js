@@ -14,7 +14,7 @@ function Sort({onSetSort}) {
   }
   return (
   <div id="sortDiv">
-    <button onClick={handleClick} id="sortBtn">Name</button>
+    <button onClick={handleClick} className="sortBtn">Name</button>
     <img src={icon}></img>
   </div>)
 }
