@@ -23,7 +23,6 @@ function HogDisplay({hogs, filter, onSetHogs}) {
     setSelectedHog(0)
   }
 
-  console.log(hogsToDisplay)
   return (
   <div className="indexWrapper">
     {hogsToDisplay.map(hog => {
