@@ -289,7 +289,6 @@ input:focus-visible + .slider {
   grid-column: span 2;
 }
 
-/* ===== AddForm ===== */
 .addForm {
   display: grid;
   grid-template-columns: auto 1fr;
@@ -303,7 +302,6 @@ input:focus-visible + .slider {
   border-radius: 8px;
 }
 
-/* Keep the hide function working — display:grid above would override it */
 .addForm[hidden] {
   display: none;
 }
@@ -328,7 +326,6 @@ input:focus-visible + .slider {
   border-color: #3B0B0B;
 }
 
-/* Submit button spans both columns */
 .addForm input[type="submit"] {
   grid-column: 1 / -1;
   justify-self: center;
