@@ -35,7 +35,7 @@ function AddForm({ isHidden, onAddHog }) {
   }
 
   return (
-    <form hidden={!isHidden} onSubmit={handleSubmit}>
+    <form hidden={!isHidden} onSubmit={handleSubmit} className="addForm">
       <label>Name:</label>
       <input
         type="text"

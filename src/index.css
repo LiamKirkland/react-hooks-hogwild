@@ -288,3 +288,48 @@ input:focus-visible + .slider {
 .piggyDetails > button {
   grid-column: span 2;
 }
+
+/* ===== AddForm ===== */
+.addForm {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 8px 12px;
+  align-items: center;
+  max-width: 500px;
+  margin: 1.5% auto;
+  padding: 16px 20px;
+  background-color: #FFF5F7;
+  border: 2px solid #3B0B0B;
+  border-radius: 8px;
+}
+
+/* Keep the hide function working — display:grid above would override it */
+.addForm[hidden] {
+  display: none;
+}
+
+.addForm label {
+  color: #3B0B0B;
+  font-weight: bold;
+  text-align: right;
+}
+
+.addForm input[type="text"],
+.addForm input[type="number"] {
+  padding: 4px 8px;
+  border: 1px solid #F5A9BC;
+  border-radius: 4px;
+  font-family: Georgia, serif;
+}
+
+.addForm input[type="text"]:focus,
+.addForm input[type="number"]:focus {
+  outline: none;
+  border-color: #3B0B0B;
+}
+
+/* Submit button spans both columns */
+.addForm input[type="submit"] {
+  grid-column: 1 / -1;
+  justify-self: center;
+}
